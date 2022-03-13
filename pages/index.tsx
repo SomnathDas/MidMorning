@@ -2,10 +2,15 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  const getRandomInt = (max: number) => {
+    return Math.floor(Math.random() * max);
+  };
+
   const keyStr =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
@@ -20,6 +25,30 @@ const Home: NextPage = () => {
       triplet(0, r, g) + triplet(b, 255, 255)
     }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
+  const [currentTheme, setCurrentTheme] = useState([
+    0,
+    "/hero.webp",
+    "/heroMobile.webp",
+  ]);
+
+  useEffect(() => {
+    const themes = [
+      [0, "/hero.webp", "/heroMobile.webp"],
+      [1, "/hero2.webp", "/hero2Mobile.webp"],
+    ];
+    const interval = () => {
+      setCurrentTheme(themes[getRandomInt(2)]);
+    };
+
+    const id = setInterval(() => {
+      interval();
+    }, 5000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
   return (
     <div className={`w-screen h-screen`}>
       <Head>
@@ -33,7 +62,9 @@ const Home: NextPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={`absolute h-3/5 w-full bg-morningblue`}
+          className={`absolute h-3/5 w-full ${
+            currentTheme[0] === 0 ? "bg-morningblue" : "bg-morningyellow"
+          } transition-colors duration-700 ease-in-out`}
         ></motion.div>
         <main
           className={`h-full flex flex-col lg:items-baseline items-center justify-center `}
@@ -90,7 +121,7 @@ const Home: NextPage = () => {
             className={` lg:self-center relative lg:bottom-20 lg:left-12 object-center hidden md:block`}
           >
             <Image
-              src="/hero.webp"
+              src={`${currentTheme[1]}`}
               height={320}
               width={480}
               alt="Flower"
@@ -106,7 +137,7 @@ const Home: NextPage = () => {
             className={`md:hidden mb-12`}
           >
             <Image
-              src="/heroMobile.webp"
+              src={`${currentTheme[2]}`}
               height={360}
               width={250}
               alt="Flower"
