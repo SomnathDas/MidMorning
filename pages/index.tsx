@@ -6,6 +6,20 @@ import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  const keyStr =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+  const triplet = (e1: number, e2: number, e3: number) =>
+    keyStr.charAt(e1 >> 2) +
+    keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+    keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+    keyStr.charAt(e3 & 63);
+
+  const rgbDataURL = (r: number, g: number, b: number) =>
+    `data:image/gif;base64,R0lGODlhAQABAPAA${
+      triplet(0, r, g) + triplet(b, 255, 255)
+    }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
   return (
     <div className={`w-screen h-screen`}>
       <Head>
@@ -75,7 +89,14 @@ const Home: NextPage = () => {
             transition={{ duration: 2, delay: 0.2 }}
             className={` lg:self-center relative lg:bottom-20 lg:left-12 object-center hidden md:block`}
           >
-            <Image src="/hero.webp" height={320} width={480} alt="Flower" />
+            <Image
+              src="/hero.webp"
+              height={320}
+              width={480}
+              alt="Flower"
+              placeholder="blur"
+              blurDataURL={rgbDataURL(132, 202, 231)}
+            />
           </motion.section>
           <motion.section
             initial={{ opacity: 0, filter: "hue-rotate(0deg)" }}
