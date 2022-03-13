@@ -129,6 +129,17 @@ const Home: NextPage = () => {
               blurDataURL={rgbDataURL(132, 202, 231)}
               priority={true}
             />
+            <div className="hidden">
+              <Image
+                src={`/hero2.webp`}
+                height={320}
+                width={480}
+                alt="Flower"
+                placeholder="blur"
+                blurDataURL={rgbDataURL(132, 202, 231)}
+                priority={true}
+              />
+            </div>
           </motion.section>
           <motion.section
             initial={{ opacity: 0, filter: "hue-rotate(0deg)" }}
@@ -145,6 +156,17 @@ const Home: NextPage = () => {
               blurDataURL={rgbDataURL(132, 202, 231)}
               priority={true}
             />
+            <div className="hidden">
+              <Image
+                src={`/hero2Mobile.webp`}
+                height={320}
+                width={480}
+                alt="Flower"
+                placeholder="blur"
+                blurDataURL={rgbDataURL(132, 202, 231)}
+                priority={true}
+              />
+            </div>
           </motion.section>
         </main>
       </Layout>
