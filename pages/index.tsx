@@ -109,6 +109,8 @@ const Home: NextPage = () => {
               height={360}
               width={250}
               alt="Flower"
+              placeholder="blur"
+              blurDataURL={rgbDataURL(132, 202, 231)}
             />
           </motion.section>
         </main>
