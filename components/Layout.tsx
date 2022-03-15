@@ -1,3 +1,4 @@
+import React from "react";
 import LayoutProps from "../typings/LayoutProps";
 import Navbar from "./Navbar";
 

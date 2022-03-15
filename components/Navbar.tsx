@@ -17,7 +17,15 @@ const NavbarList = () => {
     >
       <li>
         <Link href={`/`}>
-          <a className={Router.pathname !== "/" ? "opacity-50" : "opacity-100"}>
+          <a
+            className={`${
+              Router.pathname !== "/" ? "opacity-50" : "opacity-100"
+            } ${
+              Router.pathname !== "/"
+                ? "hover:opacity-90 transition-opacity"
+                : ""
+            }`}
+          >
             HOME
           </a>
         </Link>
@@ -25,9 +33,13 @@ const NavbarList = () => {
       <li>
         <Link href={`/about`}>
           <a
-            className={
-              Router.pathname !== "/about" ? "opacity-70" : "opacity-100"
+            className={`
+              ${Router.pathname !== "/about" ? "opacity-70" : "opacity-100"} ${
+              Router.pathname !== "/about"
+                ? "hover:opacity-90 transition-opacity"
+                : ""
             }
+              `}
           >
             ABOUT
           </a>
@@ -36,9 +48,13 @@ const NavbarList = () => {
       <li>
         <Link href={`/projects`}>
           <a
-            className={
+            className={`${
               Router.pathname !== "/projects" ? "opacity-70" : "opacity-100"
-            }
+            } ${
+              Router.pathname !== "/projects"
+                ? "hover:opacity-90 transition-opacity"
+                : ""
+            }`}
           >
             WORKS
           </a>
