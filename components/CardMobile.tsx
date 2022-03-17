@@ -1,17 +1,26 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import CardProps from "../typings/CardProps";
+import CardProps from "../typings/CardMobileProps";
 
-const Card = ({
+const CardMobile = ({
   backgroundStyle,
   title,
+  index,
+  setActiveCard,
+  currCard,
+  theme,
   description,
   imageLink,
   projectLink,
-  index,
-  theme,
 }: CardProps) => {
   const [direction, setDirection] = useState(false);
+  const variants = {
+    leftSwipeInitial: { opacity: 0, x: 500 },
+    rightSwipeInitial: { opacity: 0, x: -500 },
+    leftSwipeExit: { opacity: 0, x: -500 },
+    rightSwipeExit: { opacity: 0, x: 500 },
+  };
+
   const [currStyle, setStyle] = useState({
     backgroundImage: `url(${imageLink})`,
     backgroundColor: "rgba(9, 129, 209, 0.651)",
@@ -43,19 +52,29 @@ const Card = ({
     }
   }, [imageLink, theme]);
 
-  const variants = {};
-
-  useEffect(() => {
-    console.log(direction);
-  }, [direction]);
-
   return (
     <motion.article
       variants={variants}
-      transition={{ duration: 1 }}
-      animate={{ opacity: 1 }}
-      key={Math.floor(Math.random() * index) + index}
-      className={`${backgroundStyle.div} hover:bg-opacity-40 p-6 flex flex-col gap-12 rounded-sm h-full justify-between `}
+      transition={{ duration: 0.5 }}
+      initial={direction ? "leftSwipeInitial" : "rightSwipeInitial"}
+      animate={{ opacity: 1, x: 0 }}
+      exit={direction ? "leftSwipeExit" : "rightSwipeExit"}
+      drag="x"
+      whileTap={{ scale: 0.9 }}
+      dragConstraints={{ left: 0, right: 0 }}
+      dragSnapToOrigin={true}
+      onDragEnd={(event, info) => {
+        console.log(info);
+        if (info.offset.x >= 150) {
+          setDirection(false);
+          setActiveCard(currCard + 1);
+        } else if (info.offset.x <= -150) {
+          setDirection(true);
+          setActiveCard(currCard - 1);
+        }
+      }}
+      key={index}
+      className={` hover:bg-opacity-40 p-6 flex flex-col gap-12 rounded-sm h-full justify-center`}
       style={currStyle}
     >
       <motion.h1 className={``}>
@@ -75,4 +94,4 @@ const Card = ({
     </motion.article>
   );
 };
-export default Card;
+export default CardMobile;

@@ -44,7 +44,8 @@ const Home: NextPage = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
               exit={{ opacity: 0 }}
-              className={`flex flex-col relative lg:items-start md:items-center  z-10 gap-4 md:top-6 lg:top-20 lg:ml-auto lg:mr-auto lg:w-64 top-24`}
+              key={10}
+              className={`flex flex-col relative lg:items-start md:items-center  z-10 gap-4 md:top-6 lg:top-20 lg:ml-auto lg:mr-auto lg:w-64 top-24 ${styles.landscape}`}
             >
               <h2 className={`lg:hidden md:hidden text-5xl`}>
                 <span>
@@ -91,6 +92,7 @@ const Home: NextPage = () => {
               initial={{ opacity: 0, filter: "hue-rotate(0deg)" }}
               animate={{ opacity: 1, filter: "hue-rotate(360deg)" }}
               transition={{ duration: 2, delay: 0.2 }}
+              key={12}
               className={` lg:self-center relative lg:bottom-20 lg:left-12 object-center hidden md:block`}
             >
               <Image

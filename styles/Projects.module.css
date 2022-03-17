@@ -1,0 +1,17 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .parent {
+    display: none;
+  }
+}
+
+.div:hover {
+  filter: drop-shadow(16px 16px 20px white) invert(90%);
+  scale: 1.02;
+}

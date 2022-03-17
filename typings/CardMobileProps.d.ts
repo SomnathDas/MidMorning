@@ -1,7 +1,9 @@
 type CardProps = {
-  backgroundStyle: any;
+  backgroundStyle: string;
   title: string;
   index: number;
+  setActiveCard: Function;
+  currCard: number;
   theme: any;
   description: string;
   imageLink: string;

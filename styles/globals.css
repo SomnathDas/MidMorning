@@ -7,12 +7,22 @@
 h1,
 h2,
 a,
+small,
 p {
   font-family: "Lexend Deca", sans-serif;
 }
 
 img {
   max-width: 100%;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth !important;
 }
 
 @keyframes fadeIn {
