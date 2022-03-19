@@ -45,10 +45,6 @@ const Card = ({
 
   const variants = {};
 
-  useEffect(() => {
-    console.log(direction);
-  }, [direction]);
-
   return (
     <motion.article
       variants={variants}

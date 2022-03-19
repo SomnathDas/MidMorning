@@ -65,10 +65,10 @@ const CardMobile = ({
       dragSnapToOrigin={true}
       onDragEnd={(event, info) => {
         console.log(info);
-        if (info.offset.x >= 150) {
+        if (info.offset.x >= 120) {
           setDirection(false);
           setActiveCard(currCard + 1);
-        } else if (info.offset.x <= -150) {
+        } else if (info.offset.x <= -120) {
           setDirection(true);
           setActiveCard(currCard - 1);
         }
@@ -87,7 +87,11 @@ const CardMobile = ({
         href={projectLink}
         target="_blank"
         rel="noreferrer"
-        className={`bg-white text-black rounded-sm text-center p-2 text-xl`}
+        className={` text-black ${
+          theme[0] === 0
+            ? "border-morningblue bg-morningblue"
+            : "border-morningyellow bg-morningyellow"
+        } border-2  rounded-sm text-center p-2 text-xl`}
       >
         Check it out
       </a>
