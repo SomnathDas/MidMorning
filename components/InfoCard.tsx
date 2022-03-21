@@ -35,7 +35,7 @@ const InfoCard = ({ index, setActiveCard, currCard, info }: InfoCardProps) => {
       key={index}
       className={` hover:bg-opacity-40  flex flex-col gap-12 rounded-sm h-full justify-center border-2 border-black`}
     >
-      <p className={`text-lg text-center `}>{info}</p>
+      <p className={` text-base text-center `}>{info}</p>
     </motion.article>
   );
 };

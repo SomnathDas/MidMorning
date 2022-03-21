@@ -7,6 +7,7 @@ import InfoCard from "../components/InfoCard";
 import Layout from "../components/Layout";
 import SocialButton from "../components/SocialButton";
 import ThemeContext from "../components/ThemeContext";
+import Image from "next/image";
 
 const About: NextPage = () => {
   const theme = useContext(ThemeContext);
@@ -23,7 +24,7 @@ const About: NextPage = () => {
           index={1}
           setActiveCard={(value: number) => dragToChange(value)}
           currCard={activeCard}
-          info={`Experienced in working with React.js and Next.js. Currently learning about web designing.\n\n I am also passionate about mathematics and I always try to develop my problem solving skills. I usually listen to music while working around in my head during my leisure time.`}
+          info={`Experienced in working with React.js and Next.js. Currently learning about web designing. I am also passionate about mathematics, and I always try to develop my problem-solving skills. I usually listen to music during my leisure time.`}
         />
       );
       break;
@@ -34,11 +35,7 @@ const About: NextPage = () => {
           index={2}
           setActiveCard={(value: number) => dragToChange(value)}
           currCard={activeCard}
-          info={`I am ready for learning
-                new things and having a hands-on experience on real world
-                projects. \n\n I am also experienced with frameworks such as Tailwind
-                CSS and Bootstrap. I am also familiar with Vue.js. My primary
-                programming language consist of Javascript/Typescript.`}
+          info={`I am ready to learn new things and have hands-on experience on real-world projects. I have experience with other frameworks such as Vue.js, Tailwind CSS, and Bootstrap. My primary programming language consists of Javascript/Typescript. But I am also comfortable with languages such as Java, C++, and Dart.`}
         />
       );
       break;
@@ -182,17 +179,32 @@ const About: NextPage = () => {
             key={12}
             className={` lg:self-center relative lg:bottom-20 lg:left-12 object-center hidden md:block -z-30`}
           >
-            <div className={`w-96 h-96 bg-white border-black border-2`}></div>
+            <div className={`w-96 h-96 bg-white border-black border-2`}>
+              <Image
+                src={"/SD.png"}
+                layout="fill"
+                objectFit="cover"
+                alt="I was music"
+                className={``}
+              />
+            </div>
           </motion.section>
           <motion.section
             initial={{ opacity: 0, filter: "hue-rotate(0deg)" }}
             animate={{ opacity: 1, filter: "hue-rotate(360deg)" }}
             transition={{ duration: 2, delay: 0.2 }}
             className={`md:hidden mt-12`}
+            key={14}
           >
-            <div
-              className={`w-44 h-44 rounded-full bg-white border-black border-2`}
-            ></div>
+            <div className={`w-44 h-44`}>
+              <Image
+                src={"/SDMobile.jpg"}
+                layout="fill"
+                objectFit="cover"
+                alt="I was music"
+                className={`rounded-full`}
+              />
+            </div>
           </motion.section>
           <motion.section
             initial={{ opacity: 0 }}
@@ -202,6 +214,7 @@ const About: NextPage = () => {
           >
             <AnimatePresence exitBeforeEnter={true}>{elem}</AnimatePresence>
           </motion.section>
+
           <motion.section
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -243,27 +256,26 @@ const About: NextPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
-              className={` w-11/12 lg:w-11/12 md:w-full border-2 border-black p-2 flex-col justify-center items-center hidden md:flex`}
+              className={` w-11/12 lg:w-11/12 md:w-full border-2 border-white p-2 flex-col justify-center items-center hidden md:flex`}
             >
-              <h1 className={`text-3xl`}>My name is Somnath and I exists.</h1>
+              <h1 className={`text-3xl`}>My name is Somnath and I exist.</h1>
               <p className={`text-right  w-4/5`}>
                 Experienced in working with React.js and Next.js. Currently
                 learning about web designing. I am also passionate about
-                mathematics and I always try to develop my problem solving
-                skills. I usually listen to music while working around in my
-                head during my leisure time.
+                mathematics, and I always try to develop my problem-solving
+                skills. I usually listen to music in my free time.
               </p>
             </motion.div>
             <div
               className={` w-4/5 lg:w-4/5 md:w-full border-2 border-black p-2 flex-col justify-center items-center relative lg:right-40 bg-white bg-opacity-70 hidden md:flex`}
             >
               <p className={`text-left`}>
-                <strong className="text-4xl">I</strong> am ready for learning
-                new things and having a hands-on experience on real world
-                projects. I am also experienced with frameworks such as Tailwind
-                CSS and Bootstrap. I am also familiar with Vue.js. My primary
-                programming language consist of Javascript/Typescript. But I
-                have also worked with langauges such as Java, C++ and Dart.
+                <strong className="text-4xl">I</strong> am ready to learn new
+                things and have hands-on experience on real-world projects. I
+                have experience with other frameworks such as Vue.js, Tailwind
+                CSS, and Bootstrap. My primary programming language consists of
+                Javascript/Typescript. But I am also comfortable with languages
+                such as Java, C++, and Dart.
               </p>
             </div>
           </motion.section>

@@ -102,7 +102,10 @@ const Projects: NextPage = () => {
             className={`relative h-4/5 w-11/12 text-white text-4xl md:text-5xl md:hidden overflow-x-hidden`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.3 }}
+            transition={{
+              duration: 1,
+              delay: 1.3,
+            }}
           >
             <AnimatePresence exitBeforeEnter={true}>{elem}</AnimatePresence>
           </motion.section>
