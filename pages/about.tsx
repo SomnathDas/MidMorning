@@ -181,7 +181,7 @@ const About: NextPage = () => {
           >
             <div className={`w-96 h-96 bg-white border-black border-2`}>
               <Image
-                src={"/SD.png"}
+                src={"/sd.webp"}
                 layout="fill"
                 objectFit="cover"
                 alt="I was music"
@@ -198,7 +198,7 @@ const About: NextPage = () => {
           >
             <div className={`w-44 h-44`}>
               <Image
-                src={"/SDMobile.jpg"}
+                src={"/sdMobile.webp"}
                 layout="fill"
                 objectFit="cover"
                 alt="I was music"
